@@ -12,6 +12,7 @@ import java.util.Optional;
 @Component
 public class Library {
     private List<Book> bookList;
+    @Autowired
     private BookService service;
 
     public void update() {
@@ -38,6 +39,10 @@ public class Library {
 //    CONSTRUCTORS, GETTERS & SETTERS
     public Library(BookService service) {
         this.service = service;
+    }
+
+    public Library() {
+
     }
 
     public List<Book> getBookList() {

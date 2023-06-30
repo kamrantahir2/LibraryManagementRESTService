@@ -10,6 +10,7 @@ import java.util.UUID;
 @Service
 public class BookService {
 
+    @Autowired
     private BookRepository bookRepository;
 
     public BookService(BookRepository bookRepository) {
