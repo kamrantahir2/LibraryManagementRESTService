@@ -1,5 +1,6 @@
 package com.example.LibraryManagementRESTService.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -10,8 +11,9 @@ import org.springframework.stereotype.Component;
 @Table(name="books")
 public class Book {
 
+    @JsonIgnore
     @Id
-    private int id;
+    private String id;
 
     @Column(name="name")
     private String name;
@@ -22,6 +24,7 @@ public class Book {
     @Column(name="category")
     private String category;
 
+    @JsonIgnore
     private boolean available;
 
 //    FIELDS END HERE
@@ -35,7 +38,7 @@ public class Book {
 //    ======================================================================
 //    CONSTRUCTORS, GETTERS & SETTERS
 
-    public Book(int id, String name, String author, String category, boolean available) {
+    public Book(String id, String name, String author, String category, boolean available) {
         this.id = id;
         this.name = name;
         this.author = author;
@@ -43,7 +46,7 @@ public class Book {
         this.available = available;
     }
 
-    public Book(int id, String name, String author, String category) {
+    public Book(String id, String name, String author, String category) {
         this.id = id;
         this.name = name;
         this.author = author;
@@ -54,11 +57,11 @@ public class Book {
     public Book() {
     }
 
-    public int getId() {
+        public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

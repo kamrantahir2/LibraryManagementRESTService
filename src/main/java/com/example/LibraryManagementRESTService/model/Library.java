@@ -1,38 +1,43 @@
 package com.example.LibraryManagementRESTService.model;
 
+import com.example.LibraryManagementRESTService.service.BookService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class Library {
     private List<Book> bookList;
+    private BookService service;
 
-    public void addTempBooks() {
-        this.bookList.add(new Book(1, "book1", "author1", "cat1"));
-        this.bookList.add(new Book(2, "book2", "author2", "cat2"));
-        this.bookList.add(new Book(3, "book3", "author3", "cat3"));
+    public void update() {
+        this.bookList = (List<Book>) service.getAll();
     }
 
+    public boolean addBook(Book book) {
+        Optional<Book> optBook = Optional.of(book);
 
+        if (optBook.isPresent()) {
+            Book newBook = optBook.get();
+            service.save(book);
+//            updateBookList(service);
+            return true;
+        } else {
+            return false;
+        }
 
-
-
-
-
+    }
 
 
 
 //    ====================================================================
 //    CONSTRUCTORS, GETTERS & SETTERS
-    public Library(List<Book> bookList) {
-        this.bookList = bookList;
-    }
-
-    public Library() {
-        this.bookList = new ArrayList<>();
-        addTempBooks();
+    public Library(BookService service) {
+        this.service = service;
     }
 
     public List<Book> getBookList() {
