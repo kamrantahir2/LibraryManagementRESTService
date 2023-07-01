@@ -19,7 +19,6 @@ public class Library {
 
     public boolean addBook(Book book) {
         Optional<Book> optBook = Optional.of(book);
-
         if (optBook.isPresent()) {
             Book newBook = optBook.get();
             service.save(book);
@@ -28,19 +27,20 @@ public class Library {
         } else {
             return false;
         }
-
     }
 
     public boolean deleteBook(Book book) {
         Optional<Book> opt = Optional.of(book);
         if (opt.isPresent()) {
-            Book optBook = (Book) opt.get();
+            Book optBook = opt.get();
             service.delete(optBook.getId());
             return true;
         } else {
             return false;
         }
     }
+
+
 
 
 

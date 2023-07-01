@@ -39,4 +39,8 @@ public class BookService {
     public void delete(String id) {
         bookRepository.deleteById(id);
     }
+
+    public Book findByName(String name) {
+        return bookRepository.findByName(name);
+    }
 }
