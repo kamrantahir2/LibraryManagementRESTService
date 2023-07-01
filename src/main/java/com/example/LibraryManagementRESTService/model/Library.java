@@ -3,9 +3,7 @@ package com.example.LibraryManagementRESTService.model;
 import com.example.LibraryManagementRESTService.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,13 +23,25 @@ public class Library {
         if (optBook.isPresent()) {
             Book newBook = optBook.get();
             service.save(book);
-//            updateBookList(service);
+            update();
             return true;
         } else {
             return false;
         }
 
     }
+
+    public boolean deleteBook(Book book) {
+        Optional<Book> opt = Optional.of(book);
+        if (opt.isPresent()) {
+            Book optBook = (Book) opt.get();
+            service.delete(optBook.getId());
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
 
 

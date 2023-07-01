@@ -13,6 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.UUID;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -28,9 +29,15 @@ public class LibraryTests {
     }
 
     @Test
-    @DisplayName("Test Add Book Method")
     public void testAddBookMethod() {
-        assertEquals(true, library.addBook(new Book(UUID.randomUUID().toString(), "test_name", "test_author", "test_cat")));
+        assertTrue(library.addBook(new Book(UUID.randomUUID().toString(), "test_name", "test_author", "test_cat")));
+    }
+
+    @Test
+    public void testDeleteBookMethod() {
+        Book book = new Book(UUID.randomUUID().toString(), "name", "author", "cat");
+
+        assertTrue(library.deleteBook(book));
     }
 
 }
