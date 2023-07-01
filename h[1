@@ -1,0 +1,23 @@
+[33mcommit f4207173201143e4b5784375c65a6c2a850bd623[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: kamrantahir2 <59852029+kamrantahir2@users.noreply.github.com>
+Date:   Fri Jun 30 21:43:00 2023 +0100
+
+    Create first unit test after learning JUnit
+
+[33mcommit 426dab2ac269a7cae6a5f8d6762324d68106eb61[m[33m ([m[1;31mlibrary/master[m[33m)[m
+Author: kamrantahir2 <59852029+kamrantahir2@users.noreply.github.com>
+Date:   Fri Jun 30 19:33:28 2023 +0100
+
+    Set up /addbooks POST mapping to add a book to database
+
+[33mcommit 36f128c89a7bcafa08543ad648ea3c29b17df197[m
+Author: kamrantahir2 <59852029+kamrantahir2@users.noreply.github.com>
+Date:   Thu Jun 29 21:15:24 2023 +0100
+
+    Add comment outlining next step
+
+[33mcommit 86b21c2f29b81a0370c20aff7012c260275dab70[m
+Author: kamrantahir2 <59852029+kamrantahir2@users.noreply.github.com>
+Date:   Thu Jun 29 21:09:34 2023 +0100
+
+    Create Service class for BookRepository. WORK-IN-PROGRESS. Service class still needs to be populated
