@@ -32,7 +32,18 @@ public class Book {
 //    FIELDS END HERE
 //    ======================================================================
 
+    public int decrementQuantity() {
+        if (this.quantity == 0) {
+            return -1;
+        } else {
+            this.quantity--;
+            if (this.quantity == 0) {
+                this.available = false;
+            }
+            return this.quantity;
+        }
 
+    }
 
 
 
@@ -52,6 +63,7 @@ public class Book {
         this.author = author;
         this.category = category;
         available = true;
+        this.quantity = quantity;
     }
 
     public Book() {

@@ -28,15 +28,27 @@ public class LibraryTests {
         this.library = new Library(service);
     }
 
+    public Book createBook() {
+        return new Book("test_name", "test_author", "test_cat", 5);
+    }
+
     @Test
     public void testAddBookMethod() {
-        assertTrue(library.addBook(new Book("test_name", "test_author", "test_cat", 5)));
+        assertTrue(library.addBook(createBook()));
     }
 
     @Test
     public void testDeleteBookMethod() {
-        Book book = new Book("name", "author", "cat", 5);
+        Book book = createBook();
         assertTrue(library.deleteBook(book));
+    }
+
+    @Test
+    public void testDecrementQuantityMethod() {
+//        Starting number: 5
+        Book book = createBook();
+        int temp = book.decrementQuantity();
+        assertEquals(4, temp);
     }
 
 }

@@ -41,9 +41,6 @@ public class Library {
     }
 
 
-
-
-
 //    ====================================================================
 //    CONSTRUCTORS, GETTERS & SETTERS
     public Library(BookService service) {
