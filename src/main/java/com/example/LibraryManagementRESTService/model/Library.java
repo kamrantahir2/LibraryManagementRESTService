@@ -51,7 +51,6 @@ public class Library {
             }
 
             service.save(book);
-//            System.out.println("quantity = " + book.getQuantity());
             update();
             return true;
         } else {

@@ -44,6 +44,16 @@ public class Book {
 
     }
 
+    public int incrementQuantity() {
+        if (this.quantity == 0) {
+            this.quantity ++;
+            this.available = true;
+        } else {
+            this.quantity ++;
+        }
+        return this.quantity;
+    }
+
 
 
 

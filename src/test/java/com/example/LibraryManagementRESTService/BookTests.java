@@ -30,5 +30,12 @@ public class BookTests {
         assertFalse(book.isAvailable());
     }
 
+    @Test
+    public void testIncrementQuantityMethod() {
+        Book book = createBook();
+        int result = book.incrementQuantity();
+        assertEquals(6, result);
+    }
+
 
 }
