@@ -5,6 +5,7 @@ import com.example.LibraryManagementRESTService.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -46,6 +47,10 @@ public class BookService {
 
     public Book findByName(String name) {
         return bookRepository.findByName(name);
+    }
+
+    public List<Book> findByCategory(String category) {
+        return bookRepository.findByCategory(category);
     }
 
     public Book findById(int id) {

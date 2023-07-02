@@ -21,7 +21,7 @@ public class Book {
     @Column(name="category")
     private String category;
 
-    @JsonIgnore
+    @Column(name="available")
     private boolean available;
 
     @Column(name="quantity")
@@ -72,8 +72,12 @@ public class Book {
         this.name = name;
         this.author = author;
         this.category = category;
-        available = true;
         this.quantity = quantity;
+        if (quantity > 0) {
+            available = true;
+        } else {
+            available = false;
+        }
     }
 
     public Book() {

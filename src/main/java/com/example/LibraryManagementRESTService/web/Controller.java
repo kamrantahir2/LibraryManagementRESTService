@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -31,6 +32,29 @@ public class Controller {
     public String getBooks() throws JsonProcessingException {
         library.update();
         return objectMapper.writeValueAsString(library);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<String> getById(@PathVariable int id) throws JsonProcessingException {
+        Optional<Book> opt = Optional.of(service.findById(id));
+        if (opt.isPresent()) {
+            Book book = opt.get();
+            return new ResponseEntity<>(objectMapper.writeValueAsString(book), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("ERROR: BOOK NOT FOUND", HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @GetMapping("/search/{category}")
+    public ResponseEntity<String> findByCategory(@PathVariable String category) throws JsonProcessingException {
+        Optional<List<Book>> opt = Optional.of(service.findByCategory(category));
+
+        if (opt.isPresent()) {
+            List<Book> list = opt.get();
+            return new ResponseEntity<>(objectMapper.writeValueAsString(list), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("ERROR: NO BOOKS FOUND", HttpStatus.NOT_FOUND);
+        }
     }
 
     @PostMapping("/addbook")
