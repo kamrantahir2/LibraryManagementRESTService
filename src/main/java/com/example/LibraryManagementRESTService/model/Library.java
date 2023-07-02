@@ -33,13 +33,12 @@ public class Library {
         Optional<Book> opt = Optional.of(book);
         if (opt.isPresent()) {
             Book optBook = opt.get();
-            service.delete(optBook.getId());
+            service.delete(optBook);
             return true;
         } else {
             return false;
         }
     }
-
 
 
 

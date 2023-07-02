@@ -25,6 +25,10 @@ public class Book {
     @JsonIgnore
     private boolean available;
 
+    @Column(name="quantity")
+    private int quantity;
+
+
 //    FIELDS END HERE
 //    ======================================================================
 
@@ -37,15 +41,13 @@ public class Book {
 //    CONSTRUCTORS, GETTERS & SETTERS
 
     public Book(String name, String author, String category, boolean available) {
-//        this.id = id;
         this.name = name;
         this.author = author;
         this.category = category;
         this.available = available;
     }
 
-    public Book(String name, String author, String category) {
-//        this.id = id;
+    public Book(String name, String author, String category, int quantity) {
         this.name = name;
         this.author = author;
         this.category = category;
@@ -94,4 +96,14 @@ public class Book {
     public void setAvailable(boolean available) {
         this.available = available;
     }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+
 }

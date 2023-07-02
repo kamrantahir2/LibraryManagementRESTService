@@ -5,5 +5,6 @@ CREATE TABLE IF NOT EXISTS books (
     name VARCHAR(50),
     author VARCHAR(50),
     category VARCHAR(50),
+    quantity INTEGER,
     available BOOLEAN
 );

@@ -30,12 +30,12 @@ public class LibraryTests {
 
     @Test
     public void testAddBookMethod() {
-        assertTrue(library.addBook(new Book("test_name", "test_author", "test_cat")));
+        assertTrue(library.addBook(new Book("test_name", "test_author", "test_cat", 5)));
     }
 
     @Test
     public void testDeleteBookMethod() {
-        Book book = new Book("name", "author", "cat");
+        Book book = new Book("name", "author", "cat", 5);
         assertTrue(library.deleteBook(book));
     }
 

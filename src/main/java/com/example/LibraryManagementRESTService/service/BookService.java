@@ -31,16 +31,19 @@ public class BookService {
 
     public Book save(Book book) {
         book.setAvailable(true);
-//        book.setId(UUID.randomUUID().toString());
         bookRepository.save(book);
         return book;
     }
 
-    public void delete(int id) {
-        bookRepository.findById(String.valueOf(id));
+    public void delete(Book book) {
+        bookRepository.delete(book);
     }
 
     public Book findByName(String name) {
         return bookRepository.findByName(name);
+    }
+
+    public Book findById(int id) {
+        return bookRepository.findById(id);
     }
 }

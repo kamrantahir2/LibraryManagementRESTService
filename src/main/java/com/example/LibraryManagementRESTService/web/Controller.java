@@ -42,17 +42,19 @@ public class Controller {
         }
     }
 
-    @DeleteMapping("/delete/{name}")
-    public ResponseEntity<String> deleteBook(@PathVariable("name") String name) throws JsonProcessingException {
-        Book book = service.findByName(name);
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<String> deleteBook(@PathVariable int id) throws JsonProcessingException {
+        Book book = service.findById(id);
         boolean bool = library.deleteBook(book);
         if (bool) {
-            library.deleteBook(book);
             library.update();
             return new ResponseEntity<>(objectMapper.writeValueAsString(book), HttpStatus.OK);
         } else {
             return new ResponseEntity<>("ERROR: BOOK NOT FOUND", HttpStatus.BAD_REQUEST);
         }
     }
+
+//    Add functionality to rent out books (decrement quantity, if quantity reaches 0 mark it as unavailable)
+
 
 }

@@ -38,7 +38,7 @@ public class EntityTests {
     @Test
     @DisplayName("Books Entity works through all layers")
     public void booksEntityWorksThroughAllLayers() throws Exception {
-        Book book = new Book("testName", "testAuthor", "testCategory");
+        Book book = new Book("testName", "testAuthor", "testCategory", 5);
 
 
         mockMvc.perform(post("/addbook")
