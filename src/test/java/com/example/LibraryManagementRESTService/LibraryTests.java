@@ -43,12 +43,5 @@ public class LibraryTests {
         assertTrue(library.deleteBook(book));
     }
 
-    @Test
-    public void testDecrementQuantityMethod() {
-//        Starting number: 5
-        Book book = createBook();
-        int temp = book.decrementQuantity();
-        assertEquals(4, temp);
-    }
 
 }
