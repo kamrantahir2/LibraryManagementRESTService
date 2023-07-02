@@ -58,6 +58,20 @@ public class Library {
         }
     }
 
+    public boolean returnBook(Book paramBook) {
+        Optional<Book> opt = Optional.of(paramBook);
+
+        if (opt.isPresent()) {
+            Book book = opt.get();
+            book.incrementQuantity();
+            service.save(book);
+            update();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
 //    ====================================================================
 //    CONSTRUCTORS, GETTERS & SETTERS

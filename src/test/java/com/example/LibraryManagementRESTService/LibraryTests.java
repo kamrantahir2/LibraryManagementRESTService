@@ -12,8 +12,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.UUID;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -43,5 +43,12 @@ public class LibraryTests {
         assertTrue(library.deleteBook(book));
     }
 
+
+    @Test
+    public void testReturnBookMethod() {
+        Book book = createBook();
+        assertTrue(library.returnBook(book));
+        assertEquals(6, book.getQuantity());
+    }
 
 }
