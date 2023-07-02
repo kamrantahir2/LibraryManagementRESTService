@@ -26,7 +26,7 @@ public class Controller {
     }
 
     @GetMapping("/")
-    public String displayJSON() throws JsonProcessingException {
+    public String getBooks() throws JsonProcessingException {
         library.update();
         return objectMapper.writeValueAsString(library);
     }
@@ -42,8 +42,9 @@ public class Controller {
         }
     }
 
+    @RequestMapping(value={"/delete/{name}"}, method=RequestMethod.DELETE)
     @DeleteMapping("/delete/{name}")
-    public ResponseEntity<String> deleteBook(@PathVariable String name) throws JsonProcessingException {
+    public ResponseEntity<String> deleteBook(@PathVariable("name") String name) throws JsonProcessingException {
         Book book = service.findByName(name);
         boolean bool = library.deleteBook(book);
         if (bool) {

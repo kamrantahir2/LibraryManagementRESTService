@@ -50,4 +50,5 @@ public class IntegrationTests {
         assertThat(testBook.getName()).isEqualTo(book.getName());
     }
 
+
 }
