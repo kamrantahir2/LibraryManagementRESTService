@@ -42,7 +42,6 @@ public class Controller {
         }
     }
 
-    @RequestMapping(value={"/delete/{name}"}, method=RequestMethod.DELETE)
     @DeleteMapping("/delete/{name}")
     public ResponseEntity<String> deleteBook(@PathVariable("name") String name) throws JsonProcessingException {
         Book book = service.findByName(name);

@@ -30,13 +30,12 @@ public class LibraryTests {
 
     @Test
     public void testAddBookMethod() {
-        assertTrue(library.addBook(new Book(UUID.randomUUID().toString(), "test_name", "test_author", "test_cat")));
+        assertTrue(library.addBook(new Book("test_name", "test_author", "test_cat")));
     }
 
     @Test
     public void testDeleteBookMethod() {
-        Book book = new Book(UUID.randomUUID().toString(), "name", "author", "cat");
-
+        Book book = new Book("name", "author", "cat");
         assertTrue(library.deleteBook(book));
     }
 

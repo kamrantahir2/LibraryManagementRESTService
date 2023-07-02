@@ -31,13 +31,13 @@ public class BookService {
 
     public Book save(Book book) {
         book.setAvailable(true);
-        book.setId(UUID.randomUUID().toString());
+//        book.setId(UUID.randomUUID().toString());
         bookRepository.save(book);
         return book;
     }
 
-    public void delete(String id) {
-        bookRepository.deleteById(id);
+    public void delete(int id) {
+        bookRepository.findById(String.valueOf(id));
     }
 
     public Book findByName(String name) {

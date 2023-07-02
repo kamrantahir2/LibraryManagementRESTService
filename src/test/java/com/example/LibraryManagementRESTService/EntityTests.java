@@ -24,7 +24,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 @RunWith(SpringJUnit4ClassRunner.class)
-public class IntegrationTests {
+public class EntityTests {
 
     @Autowired
     private MockMvc mockMvc;
@@ -38,7 +38,7 @@ public class IntegrationTests {
     @Test
     @DisplayName("Books Entity works through all layers")
     public void booksEntityWorksThroughAllLayers() throws Exception {
-        Book book = new Book(UUID.randomUUID().toString(), "testName", "testAuthor", "testCategory");
+        Book book = new Book("testName", "testAuthor", "testCategory");
 
 
         mockMvc.perform(post("/addbook")
