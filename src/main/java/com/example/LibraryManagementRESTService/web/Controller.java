@@ -11,6 +11,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 
 @RestController
 public class Controller {
@@ -56,15 +58,32 @@ public class Controller {
 
     @PutMapping("rent/{id}")
     public ResponseEntity<String> rentOutBook(@PathVariable int id) throws JsonProcessingException {
-        Book book = service.findById(id);
-        boolean success = library.rentOutBook(book);
+        Optional<Book> opt = Optional.of(service.findById(id));
 
-        if (success) {
+        if (opt.isPresent()) {
+            Book book = opt.get();
+            boolean success = library.rentOutBook(book);
+            if (success) {
+                return new ResponseEntity<>(objectMapper.writeValueAsString(book), HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>("ERROR: BOOK NOT AVAILABLE", HttpStatus.BAD_REQUEST);
+            }
+        } else {
+            return new ResponseEntity<>("ERROR: BOOK NOT FOUND", HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @PutMapping("return/{id}")
+    public ResponseEntity<String> returnBook(@PathVariable int id) throws JsonProcessingException {
+        Optional<Book> opt = Optional.of(service.findById(id));
+
+        if (opt.isPresent()) {
+            Book book = opt.get();
+            library.returnBook(book);
             return new ResponseEntity<>(objectMapper.writeValueAsString(book), HttpStatus.OK);
         } else {
-            return new ResponseEntity<>("ERROR: BOOK NOT AVAILABLE", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("ERROR: BOOK NOT FOUND", HttpStatus.OK);
         }
-
     }
 
 }
