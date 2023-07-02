@@ -40,6 +40,25 @@ public class Library {
         }
     }
 
+    public boolean rentOutBook(Book paramBook) {
+        Optional<Book> opt = Optional.of(paramBook);
+
+        if (opt.isPresent()) {
+            Book book = opt.get();
+            int result = book.decrementQuantity();
+            if (result == -1) {
+                return false;
+            }
+
+            service.save(book);
+//            System.out.println("quantity = " + book.getQuantity());
+            update();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
 //    ====================================================================
 //    CONSTRUCTORS, GETTERS & SETTERS

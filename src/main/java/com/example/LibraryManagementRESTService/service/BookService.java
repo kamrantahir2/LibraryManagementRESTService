@@ -30,7 +30,12 @@ public class BookService {
     }
 
     public Book save(Book book) {
-        book.setAvailable(true);
+        if (book.getQuantity() > 0) {
+            book.setAvailable(true);
+        } else {
+            book.setAvailable(false);
+        }
+
         bookRepository.save(book);
         return book;
     }

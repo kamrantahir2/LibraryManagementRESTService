@@ -54,7 +54,17 @@ public class Controller {
         }
     }
 
-//    Add functionality to rent out books (decrement quantity, if quantity reaches 0 mark it as unavailable)
+    @PutMapping("rent/{id}")
+    public ResponseEntity<String> rentOutBook(@PathVariable int id) throws JsonProcessingException {
+        Book book = service.findById(id);
+        boolean success = library.rentOutBook(book);
 
+        if (success) {
+            return new ResponseEntity<>(objectMapper.writeValueAsString(book), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("ERROR: BOOK NOT AVAILABLE", HttpStatus.BAD_REQUEST);
+        }
+
+    }
 
 }

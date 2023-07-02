@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 @Table(name="books")
 public class Book {
 
-    @JsonIgnore
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
