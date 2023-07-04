@@ -80,7 +80,7 @@ public class Controller {
         }
     }
 
-    @PutMapping("rent/{id}")
+    @PutMapping("/rent/{id}")
     public ResponseEntity<String> rentOutBook(@PathVariable int id) throws JsonProcessingException {
         Optional<Book> opt = Optional.of(service.findById(id));
 
@@ -97,7 +97,7 @@ public class Controller {
         }
     }
 
-    @PutMapping("return/{id}")
+    @PutMapping("/return/{id}")
     public ResponseEntity<String> returnBook(@PathVariable int id) throws JsonProcessingException {
         Optional<Book> opt = Optional.of(service.findById(id));
 

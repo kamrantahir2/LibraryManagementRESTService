@@ -4,8 +4,7 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.skyscreamer.jsonassert.JSONAssert.assertEquals;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -78,6 +77,12 @@ public class ControllerTests {
 
         mockMvc.perform(post("/addbook").contentType(MediaType.APPLICATION_JSON)
                 .content(bookJson))
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    public void testSearchByCategory() throws Exception {
+        mockMvc.perform(get("/search/{category}", "cat").contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
 
