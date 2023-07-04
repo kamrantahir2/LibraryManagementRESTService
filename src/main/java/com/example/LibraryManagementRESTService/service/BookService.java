@@ -18,6 +18,14 @@ public class BookService {
         this.bookRepository = bookRepository;
     }
 
+    public BookRepository getBookRepository() {
+        return bookRepository;
+    }
+
+    public void setBookRepository(BookRepository bookRepository) {
+        this.bookRepository = bookRepository;
+    }
+
     public Iterable<Book> getAll() {
         return bookRepository.findAll();
     }
