@@ -39,11 +39,6 @@ import org.assertj.core.api.Assert;
 
 import java.util.Optional;
 
-
-//@RunWith(SpringRunner.class)
-//@SpringBootTest
-//@AutoConfigureMockMvc
-
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK, classes = LibraryManagementRestServiceApplication.class)
 @AutoConfigureMockMvc
